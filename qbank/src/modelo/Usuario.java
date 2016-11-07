@@ -1,23 +1,22 @@
+package modelo;
 
 public class Usuario {
-	private int codigo;
+        private String codigo;
 	private String nombre;
-	private String contraseña;
+	private String contraseÃ±a;
 	private String tipo;
 	private String EstRegistro;
-	public Usuario(int codigo, String nombre, String contraseña, String tipo,
-			String estRegistro) {
-		super();
-		this.codigo = codigo;
-		this.nombre = nombre;
-		this.contraseña = contraseña;
-		this.tipo = tipo;
-		EstRegistro = estRegistro;
+	public Usuario() {
+		this.codigo = "";
+		this.nombre = "";
+		this.contraseÃ±a = "";
+		this.tipo = "";
+		EstRegistro = "";
 	}
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
@@ -26,11 +25,11 @@ public class Usuario {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContraseÃ±a() {
+		return contraseÃ±a;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContraseÃ±a(String contraseÃ±a) {
+		this.contraseÃ±a = contraseÃ±a;
 	}
 	public String getTipo() {
 		return tipo;
@@ -44,8 +43,5 @@ public class Usuario {
 	public void setEstRegistro(String estRegistro) {
 		EstRegistro = estRegistro;
 	}
-	
-	
-	
 	
 }

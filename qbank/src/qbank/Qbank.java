@@ -5,6 +5,10 @@
  */
 package qbank;
 
+import controlador.controladorLogin;
+import modelo.UsuarioDAO;
+import vista.JFlogin;
+
 /**
  *
  * @author richard
@@ -16,6 +20,11 @@ public class Qbank {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        JFlogin vistaL = new JFlogin();
+        UsuarioDAO modeloL = new UsuarioDAO();
+        controladorLogin controladorL = new controladorLogin(vistaL, modeloL);
+        vistaL.setVisible(true);
+        vistaL.setLocationRelativeTo(null);
     }
     
 }
