@@ -8,20 +8,20 @@ package controlador;
 import java.awt.event.*;
 import modelo.Usuario;
 import modelo.UsuarioDAO;
-import vista.JFlogin;
+import vista.FormLogin;
 import javax.swing.*;
-import vista.JFfinal;
+import vista.FormPantPrincipal;
 
 /**
  *
  * @author richard
  */
 public class controladorLogin implements ActionListener{
-    JFlogin vistaLogin = new JFlogin();
+    FormLogin vistaLogin = new FormLogin();
     UsuarioDAO modeloLogin = new UsuarioDAO();
     Usuario usuario = new Usuario();
     
-    public controladorLogin(JFlogin vistaLogin, UsuarioDAO modeloLogin){
+    public controladorLogin(FormLogin vistaLogin, UsuarioDAO modeloLogin){
         this.vistaLogin = vistaLogin;
         this.modeloLogin = modeloLogin;
         this.vistaLogin.ButtonIngresar.addActionListener(this);
@@ -39,11 +39,25 @@ public class controladorLogin implements ActionListener{
             JOptionPane.showMessageDialog(null, "Empleado con datos ingresados no encontrado.");
         }else{
             JOptionPane.showMessageDialog(null, "Datos correctos.");
-            JFfinal vistaF = new JFfinal();
-            controladorFinal controlador = new controladorFinal(vistaF, modeloLogin);
+            FormPantPrincipal vistaPantPrincipal = new FormPantPrincipal();
+            controladorPantPrincipal controlador = new controladorPantPrincipal(vistaPantPrincipal, modeloLogin);
             controlador.initFinal(codigo, password, usuario.getNombre());
-            vistaF.setVisible(true);
-            vistaF.setLocationRelativeTo(null);
+            switch(Integer.valueOf(usuario.getTipo())){
+                case 1:
+                    vistaPantPrincipal.Formulador.setEnabled(false);
+                    vistaPantPrincipal.Digitador.setEnabled(false);
+                break;
+                case 2:
+                    vistaPantPrincipal.Administrador.setEnabled(false);
+                    vistaPantPrincipal.Digitador.setEnabled(false);                    
+                break;
+                case 3:
+                    vistaPantPrincipal.Administrador.setEnabled(false);
+                    vistaPantPrincipal.Formulador.setEnabled(false); 
+                break;
+            }
+            vistaPantPrincipal.setVisible(true);
+            vistaPantPrincipal.setLocationRelativeTo(null);
             vistaLogin.setVisible(false);
         }
     }

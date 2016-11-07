@@ -7,20 +7,20 @@ package controlador;
 
 import modelo.Usuario;
 import modelo.UsuarioDAO;
-import vista.JFfinal;
+import vista.FormPantPrincipal;
 
 /**
  *
  * @author richard
  */
-public class controladorFinal {
-    JFfinal vistaFinal = new JFfinal();
+public class controladorPantPrincipal {
+    FormPantPrincipal vistaPantPrincipal = new FormPantPrincipal();
     UsuarioDAO modeloFinal = new UsuarioDAO();
     Usuario usuario = new Usuario();
     String codigo, password, nombre;
     
-    public controladorFinal(JFfinal vistaFinal, UsuarioDAO modeloFinal){
-        this.vistaFinal = vistaFinal;
+    public controladorPantPrincipal(FormPantPrincipal vistaPantPrincipal, UsuarioDAO modeloFinal){
+        this.vistaPantPrincipal = vistaPantPrincipal;
         this.modeloFinal = modeloFinal;
     }
     
@@ -28,7 +28,7 @@ public class controladorFinal {
         this.codigo = codigo;
         this.password = password;
         this.nombre = nombre;
-        vistaFinal.hola.setText("Hola " + nombre);
+        //vistaPantPrincipal.hola.setText("Hola " + nombre);
     }
     
     
