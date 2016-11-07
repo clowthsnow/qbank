@@ -1,21 +1,22 @@
+package modelo;
+
 
 public class Area {
-	private int codigo;
+	private String codigo;
 	private String Nombre;
-	private String CantidadPreg;
+	private String Preguntas;
 	private String EstRegistro;
-	public Area(int codigo, String nombre, String cantidadPreg,
+	public Area(String codigo, String nombre, String cantidadPreg,
 			String estRegistro) {
-		super();
 		this.codigo = codigo;
 		Nombre = nombre;
-		CantidadPreg = cantidadPreg;
+		Preguntas = cantidadPreg;
 		EstRegistro = estRegistro;
 	}
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
@@ -24,11 +25,11 @@ public class Area {
 	public void setNombre(String nombre) {
 		Nombre = nombre;
 	}
-	public String getCantidadPreg() {
-		return CantidadPreg;
+	public String getPreguntas() {
+		return Preguntas;
 	}
-	public void setCantidadPreg(String cantidadPreg) {
-		CantidadPreg = cantidadPreg;
+	public void setPreguntas(String cantidadPreg) {
+		Preguntas = cantidadPreg;
 	}
 	public String getEstRegistro() {
 		return EstRegistro;
