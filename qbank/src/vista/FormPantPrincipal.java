@@ -8,6 +8,7 @@ package vista;
 import java.awt.BorderLayout;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
+import javax.swing.UIManager;
 
 /**
  *
@@ -145,7 +146,8 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         PantallaUsuario internal = new PantallaUsuario("Usuarios",true,true,true,true);
         Escritorio.add(internal);
         internal.setBounds(0, 0, 500, 500);
-        internal.setVisible(true);
+        //internal.setVisible(true);
+        internal.show();
     }//GEN-LAST:event_MantenimientoUsuarioActionPerformed
 
     private void MantenimientoAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoAreaActionPerformed

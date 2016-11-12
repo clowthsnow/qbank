@@ -6,6 +6,7 @@
 package qbank;
 
 import controlador.controladorLogin;
+import javax.swing.UIManager;
 import modelo.UsuarioDAO;
 import vista.FormLogin;
 
@@ -20,6 +21,15 @@ public class Qbank {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        try {
+         String name = UIManager.getSystemLookAndFeelClassName();
+         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+      }
+      catch(Exception e) {
+         e.printStackTrace();
+      }
+        
         FormLogin vistaL = new FormLogin();
         UsuarioDAO modeloL = new UsuarioDAO();
         controladorLogin controladorL = new controladorLogin(vistaL, modeloL);
