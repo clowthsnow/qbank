@@ -5,8 +5,10 @@
  */
 package vista;
 
+import controlador.ControladorPantArea;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
+import modelo.AreaDAO;
 import modelo.UserTipoDAO;
 import modelo.UsuarioDAO;
 
@@ -190,6 +192,9 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         Escritorio.removeAll();
         Escritorio.repaint();
         PantallaArea internal = new PantallaArea("Usuarios",true,true,true,true);
+        AreaDAO areaC  = new AreaDAO();
+        ControladorPantArea controladorC = new ControladorPantArea(internal, areaC);
+        controladorC.inicializarAreaCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_MantenimientoAreaActionPerformed
