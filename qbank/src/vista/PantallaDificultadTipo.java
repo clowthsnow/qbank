@@ -37,7 +37,7 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
         bttnNuevo = new javax.swing.JButton();
         bttnGuardar = new javax.swing.JButton();
         bttnEliminar = new javax.swing.JButton();
-        Modificar = new javax.swing.JButton();
+        bttnModificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         DatosDificultadTipo = new javax.swing.JTable();
 
@@ -55,7 +55,7 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
 
         bttnEliminar.setText("Eliminar");
 
-        Modificar.setText("Modificar");
+        bttnModificar.setText("Modificar");
 
         DatosDificultadTipo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -81,7 +81,7 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
                 .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Modificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bttnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bttnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bttnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bttnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -101,7 +101,7 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(bttnEliminar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Modificar)
+                .addComponent(bttnModificar)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -116,9 +116,9 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTable DatosDificultadTipo;
-    public javax.swing.JButton Modificar;
     public javax.swing.JButton bttnEliminar;
     public javax.swing.JButton bttnGuardar;
+    public javax.swing.JButton bttnModificar;
     public javax.swing.JButton bttnNuevo;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblDescripcion;

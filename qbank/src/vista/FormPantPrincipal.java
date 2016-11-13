@@ -6,11 +6,15 @@
 package vista;
 
 import controlador.ControladorPantArea;
+import controlador.ControladorPantAreaDet;
 import controlador.ControladorPantCurso;
+import controlador.ControladorPantDificultad;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
 import modelo.AreaDAO;
+import modelo.AreaDetalleDAO;
 import modelo.CursoDAO;
+import modelo.DificultadDAO;
 import modelo.UserTipoDAO;
 import modelo.UsuarioDAO;
 
@@ -172,7 +176,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
     private void MantenimientoBalotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoBalotaActionPerformed
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaBalota internal = new PantallaBalota("Usuarios",true,true,true,true);
+        PantallaBalota internal = new PantallaBalota("Balota",true,true,true,true);
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_MantenimientoBalotaActionPerformed
@@ -193,7 +197,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaArea internal = new PantallaArea("Usuarios",true,true,true,true);
+        PantallaArea internal = new PantallaArea("Area",true,true,true,true);
         AreaDAO areaC  = new AreaDAO();
         ControladorPantArea controladorC = new ControladorPantArea(internal, areaC);
         controladorC.inicializarAreaCRUD();
@@ -205,7 +209,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaUserTipo internal = new PantallaUserTipo("Usuarios",true,true,true,true);
+        PantallaUserTipo internal = new PantallaUserTipo("Tipos de usuarios",true,true,true,true);
         UserTipoDAO userTipoC  = new UserTipoDAO();
         ControladorPantUserTipo controladorC = new ControladorPantUserTipo(internal, userTipoC);
         controladorC.inicializarUserTipoCRUD();
@@ -217,7 +221,10 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaAreaDet internal = new PantallaAreaDet("Usuarios",true,true,true,true);
+        PantallaAreaDet internal = new PantallaAreaDet("Detalles de área",true,true,true,true);
+        AreaDetalleDAO areaDetalleC  = new AreaDetalleDAO();
+        ControladorPantAreaDet controladorC = new ControladorPantAreaDet(internal, areaDetalleC);
+        controladorC.inicializarAreaDetCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_AreaDetalleActionPerformed
@@ -226,7 +233,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaCurso internal = new PantallaCurso("Usuarios",true,true,true,true);
+        PantallaCurso internal = new PantallaCurso("Curso",true,true,true,true);
         CursoDAO cursoC  = new CursoDAO();
         ControladorPantCurso controladorC = new ControladorPantCurso(internal, cursoC);
         controladorC.inicializarCursoCRUD();
@@ -238,7 +245,10 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaDificultadTipo internal = new PantallaDificultadTipo("Usuarios",true,true,true,true);
+        PantallaDificultadTipo internal = new PantallaDificultadTipo("Dificultad",true,true,true,true);
+        DificultadDAO dificultadC  = new DificultadDAO();
+        ControladorPantDificultad controladorC = new ControladorPantDificultad(internal, dificultadC);
+        controladorC.inicializarDificultadCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_DificultadTipoActionPerformed
@@ -247,7 +257,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaPregunta internal = new PantallaPregunta("Usuarios",true,true,true,true);
+        PantallaPregunta internal = new PantallaPregunta("Preguntas",true,true,true,true);
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_MantenimientoPreguntasActionPerformed
@@ -256,7 +266,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaExamen internal = new PantallaExamen("Usuarios",true,true,true,true);
+        PantallaExamen internal = new PantallaExamen("Examen",true,true,true,true);
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_ExamenActionPerformed

@@ -26,7 +26,7 @@
               <Component id="txtDescripcion" min="-2" pref="238" max="-2" attributes="0"/>
               <EmptySpace pref="78" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Modificar" max="32767" attributes="0"/>
+                  <Component id="bttnModificar" max="32767" attributes="0"/>
                   <Component id="bttnEliminar" alignment="0" max="32767" attributes="0"/>
                   <Component id="bttnGuardar" alignment="0" max="32767" attributes="0"/>
                   <Component id="bttnNuevo" alignment="0" max="32767" attributes="0"/>
@@ -50,7 +50,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="bttnEliminar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="Modificar" min="-2" max="-2" attributes="0"/>
+              <Component id="bttnModificar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="162" max="-2" attributes="0"/>
           </Group>
@@ -98,7 +98,7 @@
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="Modificar">
+    <Component class="javax.swing.JButton" name="bttnModificar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar"/>
       </Properties>
