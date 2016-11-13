@@ -65,7 +65,7 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
         bttnEliminar = new javax.swing.JButton();
         bttnModificar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        DatosPregunta = new javax.swing.JTable();
 
         lblCurso.setText("Curso:");
 
@@ -121,7 +121,7 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
 
         bttnModificar.setText("Modificar");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        DatosPregunta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -132,7 +132,7 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(DatosPregunta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -270,6 +270,7 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JTable DatosPregunta;
     public javax.swing.JButton bttnEliminar;
     public javax.swing.JButton bttnGuardar;
     public javax.swing.JButton bttnModificar;
@@ -280,7 +281,6 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    public javax.swing.JTable jTable1;
     public javax.swing.JLabel lblAlternativa1;
     public javax.swing.JLabel lblAlternativa2;
     public javax.swing.JLabel lblAlternativa3;

@@ -10,6 +10,7 @@ import controlador.ControladorPantAreaDet;
 import controlador.ControladorPantBalota;
 import controlador.ControladorPantCurso;
 import controlador.ControladorPantDificultad;
+import controlador.ControladorPantPregunta;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
 import modelo.AreaDAO;
@@ -17,6 +18,7 @@ import modelo.AreaDetalleDAO;
 import modelo.BalotaDAO;
 import modelo.CursoDAO;
 import modelo.DificultadDAO;
+import modelo.PreguntaDAO;
 import modelo.UserTipoDAO;
 import modelo.UsuarioDAO;
 
@@ -263,6 +265,9 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         Escritorio.removeAll();
         Escritorio.repaint();
         PantallaPregunta internal = new PantallaPregunta("Preguntas",true,true,true,true);
+        PreguntaDAO dificultadC  = new PreguntaDAO();
+        ControladorPantPregunta controladorC = new ControladorPantPregunta(internal, dificultadC);
+        controladorC.inicializarUsuarioCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_MantenimientoPreguntasActionPerformed
