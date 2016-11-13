@@ -6,9 +6,11 @@
 package vista;
 
 import controlador.ControladorPantArea;
+import controlador.ControladorPantCurso;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
 import modelo.AreaDAO;
+import modelo.CursoDAO;
 import modelo.UserTipoDAO;
 import modelo.UsuarioDAO;
 
@@ -225,6 +227,9 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         Escritorio.removeAll();
         Escritorio.repaint();
         PantallaCurso internal = new PantallaCurso("Usuarios",true,true,true,true);
+        CursoDAO cursoC  = new CursoDAO();
+        ControladorPantCurso controladorC = new ControladorPantCurso(internal, cursoC);
+        controladorC.inicializarCursoCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_MantenimientoCursoActionPerformed

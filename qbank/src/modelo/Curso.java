@@ -1,18 +1,25 @@
+package modelo;
+
 
 public class Curso {
-	private int codigo;
-	private String nombre;
-	private String estRegistro;
-	public Curso(int codigo, String nombre, String estRegistro) {
+	String codigo;
+	String nombre;
+	String estRegistro;
+        
+        public Curso(){
+            
+        }
+        
+	public Curso(String codigo, String nombre, String estRegistro) {
 		super();
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.estRegistro = estRegistro;
 	}
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
