@@ -5,6 +5,7 @@
  */
 package vista;
 
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
 import controlador.ControladorPantUsuario;
 import java.awt.BorderLayout;
 import javax.swing.JInternalFrame;
@@ -75,6 +76,11 @@ public class FormPantPrincipal extends javax.swing.JFrame {
 
         MantenimientoCurso.setMnemonic('a');
         MantenimientoCurso.setText("Mantener cursos");
+        MantenimientoCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MantenimientoCursoActionPerformed(evt);
+            }
+        });
         Administrador.add(MantenimientoCurso);
 
         MantenimientoBalota.setMnemonic('x');
@@ -93,14 +99,29 @@ public class FormPantPrincipal extends javax.swing.JFrame {
 
         UserTipo.setMnemonic('t');
         UserTipo.setText("Tipos de usuario");
+        UserTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserTipoActionPerformed(evt);
+            }
+        });
         MantenimientoSecundario.add(UserTipo);
 
         DificultadTipo.setMnemonic('y');
         DificultadTipo.setText("Tipo de dificultad");
+        DificultadTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DificultadTipoActionPerformed(evt);
+            }
+        });
         MantenimientoSecundario.add(DificultadTipo);
 
         AreaDetalle.setMnemonic('p');
         AreaDetalle.setText("Detalle de área");
+        AreaDetalle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AreaDetalleActionPerformed(evt);
+            }
+        });
         MantenimientoSecundario.add(AreaDetalle);
 
         menuBar.add(MantenimientoSecundario);
@@ -108,6 +129,11 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         Formulador.setText("Formulador");
 
         Examen.setText("Examen");
+        Examen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExamenActionPerformed(evt);
+            }
+        });
         Formulador.add(Examen);
 
         menuBar.add(Formulador);
@@ -117,6 +143,11 @@ public class FormPantPrincipal extends javax.swing.JFrame {
 
         MantenimientoPreguntas.setMnemonic('c');
         MantenimientoPreguntas.setText("Preguntas");
+        MantenimientoPreguntas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MantenimientoPreguntasActionPerformed(evt);
+            }
+        });
         Digitador.add(MantenimientoPreguntas);
 
         menuBar.add(Digitador);
@@ -138,7 +169,11 @@ public class FormPantPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MantenimientoBalotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoBalotaActionPerformed
-        System.exit(0);
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaBalota internal = new PantallaBalota("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
     }//GEN-LAST:event_MantenimientoBalotaActionPerformed
 
     private void MantenimientoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoUsuarioActionPerformed
@@ -150,14 +185,71 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         ControladorPantUsuario controladorC = new ControladorPantUsuario(internal, usuarioC);
         controladorC.inicializarusuarioCRUD();
         Escritorio.add(internal);
-        //internal.setBounds(0, 0, 500, 500);
-        //internal.setVisible(true);
         internal.show();
     }//GEN-LAST:event_MantenimientoUsuarioActionPerformed
 
     private void MantenimientoAreaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoAreaActionPerformed
         // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaArea internal = new PantallaArea("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
     }//GEN-LAST:event_MantenimientoAreaActionPerformed
+
+    private void UserTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserTipoActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaUserTipo internal = new PantallaUserTipo("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
+    }//GEN-LAST:event_UserTipoActionPerformed
+
+    private void AreaDetalleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AreaDetalleActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaAreaDet internal = new PantallaAreaDet("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
+    }//GEN-LAST:event_AreaDetalleActionPerformed
+
+    private void MantenimientoCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoCursoActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaCurso internal = new PantallaCurso("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
+    }//GEN-LAST:event_MantenimientoCursoActionPerformed
+
+    private void DificultadTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DificultadTipoActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaDificultadTipo internal = new PantallaDificultadTipo("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
+    }//GEN-LAST:event_DificultadTipoActionPerformed
+
+    private void MantenimientoPreguntasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MantenimientoPreguntasActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaPregunta internal = new PantallaPregunta("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
+    }//GEN-LAST:event_MantenimientoPreguntasActionPerformed
+
+    private void ExamenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExamenActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        PantallaExamen internal = new PantallaExamen("Usuarios",true,true,true,true);
+        Escritorio.add(internal);
+        internal.show();
+    }//GEN-LAST:event_ExamenActionPerformed
 
     /**
      * @param args the command line arguments
