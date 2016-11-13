@@ -7,12 +7,14 @@ package vista;
 
 import controlador.ControladorPantArea;
 import controlador.ControladorPantAreaDet;
+import controlador.ControladorPantBalota;
 import controlador.ControladorPantCurso;
 import controlador.ControladorPantDificultad;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
 import modelo.AreaDAO;
 import modelo.AreaDetalleDAO;
+import modelo.BalotaDAO;
 import modelo.CursoDAO;
 import modelo.DificultadDAO;
 import modelo.UserTipoDAO;
@@ -177,6 +179,9 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         Escritorio.removeAll();
         Escritorio.repaint();
         PantallaBalota internal = new PantallaBalota("Balota",true,true,true,true);
+        BalotaDAO usuarioC  = new BalotaDAO();
+        ControladorPantBalota controladorC = new ControladorPantBalota(internal, usuarioC);
+        controladorC.inicializarBalotaCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_MantenimientoBalotaActionPerformed
@@ -188,7 +193,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         PantallaUsuario internal = new PantallaUsuario("Usuarios",true,true,true,true);
         UsuarioDAO usuarioC  = new UsuarioDAO();
         ControladorPantUsuario controladorC = new ControladorPantUsuario(internal, usuarioC);
-        controladorC.inicializarusuarioCRUD();
+        controladorC.inicializarUsuarioCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_MantenimientoUsuarioActionPerformed

@@ -34,7 +34,7 @@ public class ControladorPantUsuario implements ActionListener,KeyListener {
         this.vistaUsuario.bttnModificar.addActionListener(this);
     }
     
-    public void inicializarusuarioCRUD(){
+    public void inicializarUsuarioCRUD(){
         UserTipoDAO userTipo = new UserTipoDAO();
         ArrayList<UserTipo> lista = userTipo.listarUserTipo();
         String array[] = new String[lista.size()];
