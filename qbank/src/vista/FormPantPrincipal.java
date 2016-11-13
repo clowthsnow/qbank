@@ -5,10 +5,12 @@
  */
 package vista;
 
+import controlador.ControladorPantUsuario;
 import java.awt.BorderLayout;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.UIManager;
+import modelo.UsuarioDAO;
 
 /**
  *
@@ -144,8 +146,11 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         Escritorio.removeAll();
         Escritorio.repaint();
         PantallaUsuario internal = new PantallaUsuario("Usuarios",true,true,true,true);
+        UsuarioDAO usuarioC  = new UsuarioDAO();
+        ControladorPantUsuario controladorC = new ControladorPantUsuario(internal, usuarioC);
+        controladorC.inicializarusuarioCRUD();
         Escritorio.add(internal);
-        internal.setBounds(0, 0, 500, 500);
+        //internal.setBounds(0, 0, 500, 500);
         //internal.setVisible(true);
         internal.show();
     }//GEN-LAST:event_MantenimientoUsuarioActionPerformed
