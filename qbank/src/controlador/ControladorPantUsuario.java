@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -34,7 +35,15 @@ public class ControladorPantUsuario implements ActionListener,KeyListener {
     }
     
     public void inicializarusuarioCRUD(){
-        vistaUsuario.cboxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1"}));
+        UserTipoDAO userTipo = new UserTipoDAO();
+        ArrayList<UserTipo> lista = userTipo.listarUserTipo();
+        String array[] = new String[lista.size()];
+        int cont = 0;
+        while(!lista.isEmpty()){
+            UserTipo temp = lista.remove(0);
+            array[cont++] = temp.getCodigo();
+        }
+        vistaUsuario.cboxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(array));
         llenarTabla(vistaUsuario.DatosUsuarios);
     }
     

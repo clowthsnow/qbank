@@ -60,6 +60,7 @@ public class UsuarioDAO {
         }
         return rptaRegistro;
     }
+    
     public String modificarUsuario(String codigo, String nombre, String contraseña, String tipo){
         String rptaRegistro = null;
         try{
@@ -79,6 +80,7 @@ public class UsuarioDAO {
         }
         return rptaRegistro;
     }
+    
     public String eliminarUsuario(String codigo){
         String rptaRegistro = null;
         try{
@@ -94,6 +96,7 @@ public class UsuarioDAO {
         }
         return rptaRegistro;
     }
+    
     public ArrayList<Usuario> listarUsuario(){
         ArrayList listaUsuario = new ArrayList();
         Usuario usuario;

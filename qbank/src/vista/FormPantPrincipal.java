@@ -5,12 +5,9 @@
  */
 package vista;
 
-import com.sun.org.apache.bcel.internal.generic.AALOAD;
+import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
-import java.awt.BorderLayout;
-import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
-import javax.swing.UIManager;
+import modelo.UserTipoDAO;
 import modelo.UsuarioDAO;
 
 /**
@@ -202,6 +199,9 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         Escritorio.removeAll();
         Escritorio.repaint();
         PantallaUserTipo internal = new PantallaUserTipo("Usuarios",true,true,true,true);
+        UserTipoDAO userTipoC  = new UserTipoDAO();
+        ControladorPantUserTipo controladorC = new ControladorPantUserTipo(internal, userTipoC);
+        controladorC.inicializarUserTipoCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_UserTipoActionPerformed

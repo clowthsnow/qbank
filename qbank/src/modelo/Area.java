@@ -6,8 +6,7 @@ public class Area {
 	private String Nombre;
 	private String Preguntas;
 	private String EstRegistro;
-	public Area(String codigo, String nombre, String cantidadPreg,
-			String estRegistro) {
+	public Area(String codigo, String nombre, String cantidadPreg, String estRegistro) {
 		this.codigo = codigo;
 		Nombre = nombre;
 		Preguntas = cantidadPreg;

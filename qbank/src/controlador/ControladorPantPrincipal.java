@@ -13,13 +13,13 @@ import vista.FormPantPrincipal;
  *
  * @author richard
  */
-public class controladorPantPrincipal {
+public class ControladorPantPrincipal {
     FormPantPrincipal vistaPantPrincipal = new FormPantPrincipal();
     UsuarioDAO modeloFinal = new UsuarioDAO();
     Usuario usuario = new Usuario();
     String codigo, password, nombre;
     
-    public controladorPantPrincipal(FormPantPrincipal vistaPantPrincipal, UsuarioDAO modeloFinal){
+    public ControladorPantPrincipal(FormPantPrincipal vistaPantPrincipal, UsuarioDAO modeloFinal){
         this.vistaPantPrincipal = vistaPantPrincipal;
         this.modeloFinal = modeloFinal;
     }

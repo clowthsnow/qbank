@@ -16,12 +16,12 @@ import vista.FormPantPrincipal;
  *
  * @author richard
  */
-public class controladorLogin implements ActionListener{
+public class ControladorLogin implements ActionListener{
     FormLogin vistaLogin = new FormLogin();
     UsuarioDAO modeloLogin = new UsuarioDAO();
     Usuario usuario = new Usuario();
     
-    public controladorLogin(FormLogin vistaLogin, UsuarioDAO modeloLogin){
+    public ControladorLogin(FormLogin vistaLogin, UsuarioDAO modeloLogin){
         this.vistaLogin = vistaLogin;
         this.modeloLogin = modeloLogin;
         this.vistaLogin.ButtonIngresar.addActionListener(this);
@@ -40,7 +40,7 @@ public class controladorLogin implements ActionListener{
         }else{
             JOptionPane.showMessageDialog(null, "Datos correctos.");
             FormPantPrincipal vistaPantPrincipal = new FormPantPrincipal();
-            controladorPantPrincipal controlador = new controladorPantPrincipal(vistaPantPrincipal, modeloLogin);
+            ControladorPantPrincipal controlador = new ControladorPantPrincipal(vistaPantPrincipal, modeloLogin);
             controlador.initFinal(codigo, password, usuario.getNombre());
             switch(Integer.valueOf(usuario.getTipo())){
                 case 1:

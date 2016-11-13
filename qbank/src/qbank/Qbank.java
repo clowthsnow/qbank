@@ -5,7 +5,7 @@
  */
 package qbank;
 
-import controlador.controladorLogin;
+import controlador.ControladorLogin;
 import javax.swing.UIManager;
 import modelo.UsuarioDAO;
 import vista.FormLogin;
@@ -32,7 +32,7 @@ public class Qbank {
         
         FormLogin vistaL = new FormLogin();
         UsuarioDAO modeloL = new UsuarioDAO();
-        controladorLogin controladorL = new controladorLogin(vistaL, modeloL);
+        ControladorLogin controladorL = new ControladorLogin(vistaL, modeloL);
         vistaL.setVisible(true);
         vistaL.setLocationRelativeTo(null);
     }
