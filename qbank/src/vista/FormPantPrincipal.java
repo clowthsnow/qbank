@@ -10,14 +10,17 @@ import controlador.ControladorPantAreaDet;
 import controlador.ControladorPantBalota;
 import controlador.ControladorPantCurso;
 import controlador.ControladorPantDificultad;
+import controlador.ControladorPantExamen_cab;
 import controlador.ControladorPantPregunta;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
+import javax.swing.JDesktopPane;
 import modelo.AreaDAO;
 import modelo.AreaDetalleDAO;
 import modelo.BalotaDAO;
 import modelo.CursoDAO;
 import modelo.DificultadDAO;
+import modelo.Examen_cabDAO;
 import modelo.PreguntaDAO;
 import modelo.UserTipoDAO;
 import modelo.UsuarioDAO;
@@ -276,7 +279,10 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         Escritorio.removeAll();
         Escritorio.repaint();
-        PantallaExamen internal = new PantallaExamen("Examen",true,true,true,true);
+        PantallaExamen_cab internal = new PantallaExamen_cab("Examen",true,true,true,true);
+        Examen_cabDAO examen_cab  = new Examen_cabDAO();
+        ControladorPantExamen_cab controladorC = new ControladorPantExamen_cab(internal, examen_cab, Escritorio);
+        controladorC.inicializarExamen_cabCRUD();
         Escritorio.add(internal);
         internal.show();
     }//GEN-LAST:event_ExamenActionPerformed
@@ -321,7 +327,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem AreaDetalle;
     private javax.swing.JMenuItem DificultadTipo;
     public javax.swing.JMenu Digitador;
-    private javax.swing.JDesktopPane Escritorio;
+    public javax.swing.JDesktopPane Escritorio;
     private javax.swing.JMenuItem Examen;
     public javax.swing.JMenu Formulador;
     private javax.swing.JMenuItem MantenimientoArea;
@@ -335,4 +341,8 @@ public class FormPantPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     public String userTipo;
     
+    
+    public JDesktopPane getEscritorio(){
+        return Escritorio;
+    }
 }
