@@ -31,6 +31,9 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
     String currentCode = null;
     PantallaPregunta vistaPregunta = new PantallaPregunta();
     PreguntaDAO modeloPregunta = new PreguntaDAO();
+    Par arr1[];
+    Par arr2[];
+    Par arr3[];
     
     public ControladorPantPregunta(PantallaPregunta vistaPregunta, PreguntaDAO modeloPregunta){
         this.modeloPregunta = modeloPregunta;
@@ -44,33 +47,33 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
     public void inicializarUsuarioCRUD(){
         BalotaDAO balota = new BalotaDAO();
         ArrayList<Balota> lista = balota.listarBalota();
-        String array[] = new String[lista.size()];
+        arr1 = new Par[lista.size()];
         int cont = 0;
         while(!lista.isEmpty()){
             Balota temp = lista.remove(0);
-            array[cont++] = temp.getCodigo();
+            arr1[cont++] = new Par(temp.getCodigo(), temp.getNombre());
         }
-        vistaPregunta.cboxBalota.setModel(new javax.swing.DefaultComboBoxModel<>(array));
+        vistaPregunta.cboxBalota.setModel(new javax.swing.DefaultComboBoxModel(arr1));
         
         CursoDAO curso = new CursoDAO();
         ArrayList<Curso> lista2 = curso.listarCurso();
-        String array2[] = new String[lista2.size()];
+        arr2 = new Par[lista2.size()];
         cont = 0;
         while(!lista2.isEmpty()){
             Curso temp = lista2.remove(0);
-            array2[cont++] = temp.getCodigo();
+            arr2[cont++] = new Par(temp.getCodigo(), temp.getNombre());
         }
-        vistaPregunta.cboxCurso.setModel(new javax.swing.DefaultComboBoxModel<>(array2));
+        vistaPregunta.cboxCurso.setModel(new javax.swing.DefaultComboBoxModel(arr2));
         
         DificultadDAO dificultad = new DificultadDAO();
         ArrayList<Dificultad> lista3 = dificultad.listarDificultad();
-        String array3[] = new String[lista3.size()];
+        arr3 = new Par[lista3.size()];
         cont = 0;
         while(!lista3.isEmpty()){
             Dificultad temp = lista3.remove(0);
-            array3[cont++] = temp.getCodigo();
+            arr3[cont++] = new Par(temp.getCodigo(), temp.getDescripcion());
         }
-        vistaPregunta.cboxDificultad.setModel(new javax.swing.DefaultComboBoxModel<>(array3));
+        vistaPregunta.cboxDificultad.setModel(new javax.swing.DefaultComboBoxModel(arr3));
         llenarTabla(vistaPregunta.DatosPregunta);
     }
     
@@ -100,14 +103,17 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
         modeloT.addColumn("Estado");
         
         Object[] fila = new Object[15];
+        BalotaDAO balota = new BalotaDAO();
+        CursoDAO curso = new CursoDAO();
+        DificultadDAO dificultad = new DificultadDAO();
         
         int numRegistros = modeloPregunta.listarPregunta().size();
         for (int i = 0; i < numRegistros; i++) {
             fila[0] = modeloPregunta.listarPregunta().get(i).getCodigo();
-            fila[1] = modeloPregunta.listarPregunta().get(i).getCurso();
-            fila[2] = modeloPregunta.listarPregunta().get(i).getBalota();
+            fila[1] = curso.getName(modeloPregunta.listarPregunta().get(i).getCurso()).getNombre();
+            fila[2] = balota.getName(modeloPregunta.listarPregunta().get(i).getBalota()).getNombre();
             fila[3] = modeloPregunta.listarPregunta().get(i).getFormulador();
-            fila[4] = modeloPregunta.listarPregunta().get(i).getDificultad();
+            fila[4] = dificultad.getName(modeloPregunta.listarPregunta().get(i).getDificultad()).getDescripcion();
             fila[5] = modeloPregunta.listarPregunta().get(i).getFecha();
             fila[6] = modeloPregunta.listarPregunta().get(i).getEnunciado();
             fila[7] = modeloPregunta.listarPregunta().get(i).getSolucion();
@@ -138,9 +144,12 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
                 JOptionPane.showMessageDialog(null,"Datos incompletos.");
                 return;
             }
-            String curso = String.valueOf(vistaPregunta.cboxCurso.getSelectedItem());
-            String balota = String.valueOf(vistaPregunta.cboxBalota.getSelectedItem());
-            String difucultad = String.valueOf(vistaPregunta.cboxDificultad.getSelectedItem());
+            Par temp = (Par)vistaPregunta.cboxCurso.getSelectedItem();
+            String curso = String.valueOf(temp.getCode());
+            temp = (Par)vistaPregunta.cboxBalota.getSelectedItem();
+            String balota = String.valueOf(temp.getCode());
+            temp = (Par)vistaPregunta.cboxDificultad.getSelectedItem();
+            String difucultad = String.valueOf(temp.getCode());
             String rptaRegistro = null;
             if(isNew)
                 rptaRegistro = modeloPregunta.insertPregunta(curso,balota,difucultad,formulador,fecha,enunciado,solucion,alternativa1,alternativa2,alternativa3,alternativa4,alternativa5,respuesta);
@@ -166,11 +175,29 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
             int filaEditar = vistaPregunta.DatosPregunta.getSelectedRow();
             int numFS = vistaPregunta.DatosPregunta.getSelectedRowCount();
             if(filaEditar>=0 && numFS == 1){
+                int cont = 0;
                 currentCode = String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 0));
-                vistaPregunta.cboxCurso.setSelectedItem(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 1)));
-                vistaPregunta.cboxBalota.setSelectedItem(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 2)));
-                vistaPregunta.cboxDificultad.setSelectedItem(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 3)));
-                vistaPregunta.txtFormulador.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 4)));
+                String temp = String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 1));
+                while(arr2.length > cont && !temp.equals(arr2[cont].getName()))
+                    cont++;
+                vistaPregunta.cboxCurso.setSelectedItem(arr2[cont]);
+                System.out.println("Curso: "+arr2[cont]);
+                
+                temp = String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 2));
+                cont = 0;
+                while(arr1.length > cont && !temp.equals(arr1[cont].getName()))
+                    cont++;
+                vistaPregunta.cboxBalota.setSelectedItem(arr1[cont]);
+                System.out.println("Balota: "+arr1[cont]);
+                
+                temp = String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 4));
+                cont = 0;
+                while(arr3.length > cont && !temp.equals(arr3[cont].getName()))
+                    cont++;
+                vistaPregunta.cboxDificultad.setSelectedItem(arr3[cont]);
+                System.out.println("Dificultad: "+arr3[cont]);
+                
+                vistaPregunta.txtFormulador.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 3)));
                 vistaPregunta.txtFecha.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 5)));
                 vistaPregunta.txtEnunciado.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 6)));
                 vistaPregunta.txtSolucion.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 7)));

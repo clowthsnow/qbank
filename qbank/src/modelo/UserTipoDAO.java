@@ -93,4 +93,24 @@ public class UserTipoDAO {
         }
         return listaUsuarioTipo;
     }
+    
+    public UserTipo getTipo(String cod){
+        ArrayList listaUsuarioTipo = new ArrayList();
+        UserTipo usuarioTipo;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareStatement("Select * from USERTIPO where UsuTipCod = "+cod);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                usuarioTipo = new UserTipo();
+                usuarioTipo.setCodigo(rs.getString(1));
+                usuarioTipo.setDescripcion(rs.getString(2));
+                usuarioTipo.setEstRegistro(rs.getString(3));
+                listaUsuarioTipo.add(usuarioTipo);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (UserTipo)listaUsuarioTipo.get(0);
+    }
 }

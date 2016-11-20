@@ -24,6 +24,7 @@ public class ControladorPantUsuario implements ActionListener,KeyListener {
     String currentCode = null;
     PantallaUsuario vistaUsuario = new PantallaUsuario();
     UsuarioDAO modeloUsuario = new UsuarioDAO();
+    Par arr[];
     
     public ControladorPantUsuario(PantallaUsuario vistaUsuario, UsuarioDAO modeloUsuario){
         this.modeloUsuario = modeloUsuario;
@@ -37,13 +38,13 @@ public class ControladorPantUsuario implements ActionListener,KeyListener {
     public void inicializarUsuarioCRUD(){
         UserTipoDAO userTipo = new UserTipoDAO();
         ArrayList<UserTipo> lista = userTipo.listarUserTipo();
-        String array[] = new String[lista.size()];
+        arr = new Par[lista.size()];
         int cont = 0;
         while(!lista.isEmpty()){
             UserTipo temp = lista.remove(0);
-            array[cont++] = temp.getCodigo();
+            arr[cont++] = new Par(temp.getCodigo(), temp.getDescripcion());
         }
-        vistaUsuario.cboxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(array));
+        vistaUsuario.cboxTipo.setModel(new javax.swing.DefaultComboBoxModel(arr));
         llenarTabla(vistaUsuario.DatosUsuarios);
     }
     
@@ -63,13 +64,14 @@ public class ControladorPantUsuario implements ActionListener,KeyListener {
         modeloT.addColumn("Estado");
         
         Object[] fila = new Object[5];
+        UserTipoDAO userTipo = new UserTipoDAO();
         
         int numRegistros = modeloUsuario.listarUsuario().size();
         for (int i = 0; i < numRegistros; i++) {
             fila[0] = modeloUsuario.listarUsuario().get(i).getCodigo();
             fila[1] = modeloUsuario.listarUsuario().get(i).getNombre();
             fila[2] = modeloUsuario.listarUsuario().get(i).getContraseña();
-            fila[3] = modeloUsuario.listarUsuario().get(i).getTipo();
+            fila[3] = userTipo.getTipo(modeloUsuario.listarUsuario().get(i).getTipo()).getDescripcion();
             fila[4] = modeloUsuario.listarUsuario().get(i).getEstRegistro();
             modeloT.addRow((Object[]) fila);
         }
@@ -86,7 +88,8 @@ public class ControladorPantUsuario implements ActionListener,KeyListener {
                 JOptionPane.showMessageDialog(null,"Datos incompletos.");
                 return;
             }
-            String tipo = String.valueOf(vistaUsuario.cboxTipo.getSelectedItem());
+            Par temp = (Par)vistaUsuario.cboxTipo.getSelectedItem();
+            String tipo = String.valueOf(temp.getCode());
             String rptaRegistro = null;
             if(isNew)
                 rptaRegistro = modeloUsuario.insertUsuario(nombre, contraseña, tipo);
@@ -115,7 +118,12 @@ public class ControladorPantUsuario implements ActionListener,KeyListener {
                 currentCode = String.valueOf(vistaUsuario.DatosUsuarios.getValueAt(filaEditar, 0));
                 vistaUsuario.txtNombre.setText(String.valueOf(vistaUsuario.DatosUsuarios.getValueAt(filaEditar, 1)));
                 vistaUsuario.txtContraseña.setText(String.valueOf(vistaUsuario.DatosUsuarios.getValueAt(filaEditar, 2)));
-                vistaUsuario.cboxTipo.setSelectedItem(String.valueOf(vistaUsuario.DatosUsuarios.getValueAt(filaEditar, 3)));
+                String temp = String.valueOf(vistaUsuario.DatosUsuarios.getValueAt(filaEditar, 3));
+                int cont = 0;
+                while(arr.length > cont && !temp.equals(arr[cont].getName()))
+                    cont++;
+                vistaUsuario.cboxTipo.setSelectedItem(arr[cont]);
+                System.out.println(arr[cont].getName());
             }else{
                 JOptionPane.showMessageDialog(null,"Selección no válida.");
             }

@@ -97,4 +97,26 @@ public class BalotaDAO {
         }
         return listaBalota;
     }
+    
+    public Balota getName(String cod){
+        ArrayList listaBalota = new ArrayList();
+        Balota balota;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareStatement("Select * from BALOTA where BalCod = "+cod);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                balota = new Balota();
+                balota.setCodigo(rs.getString(1));
+                balota.setNombre(rs.getString(2));
+                balota.setDescripcion(rs.getString(3));
+                balota.setCurso(rs.getString(4));
+                balota.setEstRegistro(rs.getString(5));
+                listaBalota.add(balota);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (Balota)listaBalota.get(0);
+    }
 }

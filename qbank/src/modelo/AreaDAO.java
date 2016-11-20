@@ -94,4 +94,25 @@ public class AreaDAO {
         }
         return listaArea;
     }
+    
+    public Area getName(String cod){
+        ArrayList listaArea = new ArrayList();
+        Area area;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareStatement("Select * from AREA where ArCod = " + cod);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                area = new Area();
+                area.setCodigo(rs.getString(1));
+                area.setNombre(rs.getString(2));
+                area.setPreguntas(rs.getString(3));
+                area.setEstRegistro(rs.getString(4));
+                listaArea.add(area);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (Area)listaArea.get(0);
+    }
 }

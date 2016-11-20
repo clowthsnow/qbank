@@ -28,6 +28,7 @@ public class ControladorPantBalota implements ActionListener,KeyListener {
     String currentCode = null;
     PantallaBalota vistaBalota = new PantallaBalota();
     BalotaDAO modeloBalota = new BalotaDAO();
+    Par arr[];
     
     public ControladorPantBalota(PantallaBalota vistaBalota, BalotaDAO modeloBalota){
         this.modeloBalota = modeloBalota;
@@ -41,13 +42,13 @@ public class ControladorPantBalota implements ActionListener,KeyListener {
     public void inicializarBalotaCRUD(){
         CursoDAO curso = new CursoDAO();
         ArrayList<Curso> lista = curso.listarCurso();
-        String array[] = new String[lista.size()];
+        arr = new Par[lista.size()];
         int cont = 0;
         while(!lista.isEmpty()){
             Curso temp = lista.remove(0);
-            array[cont++] = temp.getCodigo();
+            arr[cont++] = new Par(temp.getCodigo(), temp.getNombre());
         }
-        vistaBalota.cboxCurso.setModel(new javax.swing.DefaultComboBoxModel<>(array));
+        vistaBalota.cboxCurso.setModel(new javax.swing.DefaultComboBoxModel(arr));
         llenarTabla(vistaBalota.DatosBalota);
     }
     
@@ -68,12 +69,14 @@ public class ControladorPantBalota implements ActionListener,KeyListener {
         
         Object[] fila = new Object[5];
         
+        CursoDAO curso = new CursoDAO();
+        
         int numRegistros = modeloBalota.listarBalota().size();
         for (int i = 0; i < numRegistros; i++) {
             fila[0] = modeloBalota.listarBalota().get(i).getCodigo();
             fila[1] = modeloBalota.listarBalota().get(i).getNombre();
             fila[2] = modeloBalota.listarBalota().get(i).getDescripcion();
-            fila[3] = modeloBalota.listarBalota().get(i).getCurso();
+            fila[3] = curso.getName(modeloBalota.listarBalota().get(i).getCurso()).getNombre();
             fila[4] = modeloBalota.listarBalota().get(i).getEstRegistro();
             modeloT.addRow((Object[]) fila);
         }
@@ -87,7 +90,8 @@ public class ControladorPantBalota implements ActionListener,KeyListener {
                 JOptionPane.showMessageDialog(null,"Datos incompletos.");
                 return;
             }
-            String curso = String.valueOf(vistaBalota.cboxCurso.getSelectedItem());
+            Par temp = (Par)vistaBalota.cboxCurso.getSelectedItem();
+            String curso = String.valueOf(temp.getCode());
             String rptaRegistro = null;
             if(isNew)
                 rptaRegistro = modeloBalota.insertBalota(nombre, descripcion, curso);
@@ -116,7 +120,11 @@ public class ControladorPantBalota implements ActionListener,KeyListener {
                 currentCode = String.valueOf(vistaBalota.DatosBalota.getValueAt(filaEditar, 0));
                 vistaBalota.txtNombre.setText(String.valueOf(vistaBalota.DatosBalota.getValueAt(filaEditar, 1)));
                 vistaBalota.txtDescripcion.setText(String.valueOf(vistaBalota.DatosBalota.getValueAt(filaEditar, 2)));
-                vistaBalota.cboxCurso.setSelectedItem(String.valueOf(vistaBalota.DatosBalota.getValueAt(filaEditar, 3)));
+                String temp = String.valueOf(vistaBalota.DatosBalota.getValueAt(filaEditar, 3));
+                int cont = 0;
+                while(arr.length > cont && !temp.equals(arr[cont].getName()))
+                    cont++;
+                vistaBalota.cboxCurso.setSelectedItem(arr[cont]);
             }else{
                 JOptionPane.showMessageDialog(null,"Selección no válida.");
             }

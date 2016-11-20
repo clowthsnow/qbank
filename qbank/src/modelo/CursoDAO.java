@@ -91,4 +91,24 @@ public class CursoDAO {
         }
         return listaCurso;
     }
+    
+    public Curso getName(String code){
+        ArrayList listaCurso = new ArrayList();
+        Curso curso;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM  `CURSO` WHERE CuCod ="+code);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                curso = new Curso();
+                curso.setCodigo(rs.getString(1));
+                curso.setNombre(rs.getString(2));
+                curso.setEstRegistro(rs.getString(3));
+                listaCurso.add(curso);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (Curso)listaCurso.get(0);
+    }
 }

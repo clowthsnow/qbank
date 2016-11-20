@@ -91,4 +91,24 @@ public class DificultadDAO {
         }
         return listaDificultad;
     }
+    
+    public Dificultad getName(String cod){
+        ArrayList listaDificultad = new ArrayList();
+        Dificultad dificultad;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareStatement("Select * from DIFICULTAD_TIPO where DifTipCod = "+cod);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                dificultad = new Dificultad();
+                dificultad.setCodigo(rs.getString(1));
+                dificultad.setDescripcion(rs.getString(2));
+                dificultad.setEstRegistro(rs.getString(3));
+                listaDificultad.add(dificultad);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (Dificultad)listaDificultad.get(0);
+    }
 }

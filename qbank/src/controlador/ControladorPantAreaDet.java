@@ -31,6 +31,8 @@ public class ControladorPantAreaDet implements ActionListener,KeyListener {
     String currentCourse = null;
     PantallaAreaDet vistaAreaDet = new PantallaAreaDet();
     AreaDetalleDAO modeloAreaDet = new AreaDetalleDAO();
+    Par arr1[];
+    Par arr2[];
     
     public ControladorPantAreaDet(PantallaAreaDet vistaAreaDet, AreaDetalleDAO modeloAreaDet){
         this.modeloAreaDet = modeloAreaDet;
@@ -42,24 +44,24 @@ public class ControladorPantAreaDet implements ActionListener,KeyListener {
     }
     
     public void inicializarAreaDetCRUD(){
-        AreaDAO userTipo = new AreaDAO();
-        ArrayList<Area> lista = userTipo.listarArea();
-        String array[] = new String[lista.size()];
+        AreaDAO area = new AreaDAO();
+        ArrayList<Area> lista = area.listarArea();
+        arr1 = new Par[lista.size()];
         int cont = 0;
         while(!lista.isEmpty()){
             Area temp = lista.remove(0);
-            array[cont++] = temp.getCodigo();
+            arr1[cont++] = new Par(temp.getCodigo(), temp.getNombre());
         }
-        vistaAreaDet.cboxArea.setModel(new DefaultComboBoxModel<>(array));
+        vistaAreaDet.cboxArea.setModel(new DefaultComboBoxModel(arr1));
         CursoDAO curso = new CursoDAO();
         ArrayList<Curso> lista2 = curso.listarCurso();
-        String array2[] = new String[lista2.size()];
+        arr2 = new Par[lista2.size()];
         cont = 0;
         while(!lista2.isEmpty()){
             Curso temp = lista2.remove(0);
-            array2[cont++] = temp.getCodigo();
+            arr2[cont++] = new Par(temp.getCodigo(), temp.getNombre());
         }
-        vistaAreaDet.cboxCurso.setModel(new DefaultComboBoxModel<>(array2));
+        vistaAreaDet.cboxCurso.setModel(new DefaultComboBoxModel(arr2));
         llenarTabla(vistaAreaDet.DatosAreaDetalle);
     }
     
@@ -78,11 +80,13 @@ public class ControladorPantAreaDet implements ActionListener,KeyListener {
         modeloT.addColumn("Estado");
         
         Object[] fila = new Object[4];
+        CursoDAO curso = new CursoDAO();
+        AreaDAO area = new AreaDAO();
         
         int numRegistros = modeloAreaDet.listarAreaDetalle().size();
         for (int i = 0; i < numRegistros; i++) {
-            fila[0] = modeloAreaDet.listarAreaDetalle().get(i).getCodigo();
-            fila[1] = modeloAreaDet.listarAreaDetalle().get(i).getCurso();
+            fila[0] = area.getName(modeloAreaDet.listarAreaDetalle().get(i).getCodigo()).getNombre();
+            fila[1] = curso.getName(modeloAreaDet.listarAreaDetalle().get(i).getCurso()).getNombre();
             fila[2] = modeloAreaDet.listarAreaDetalle().get(i).getCantidad();
             fila[3] = modeloAreaDet.listarAreaDetalle().get(i).getEstRegistro();
             modeloT.addRow((Object[]) fila);
@@ -96,8 +100,10 @@ public class ControladorPantAreaDet implements ActionListener,KeyListener {
                 JOptionPane.showMessageDialog(null,"Datos incompletos.");
                 return;
             }
-            String area = String.valueOf(vistaAreaDet.cboxArea.getSelectedItem());
-            String curso = String.valueOf(vistaAreaDet.cboxCurso.getSelectedItem());
+            Par temp = (Par)vistaAreaDet.cboxArea.getSelectedItem();
+            String area = String.valueOf(temp.getCode());
+            temp = (Par)vistaAreaDet.cboxCurso.getSelectedItem();
+            String curso = String.valueOf(temp.getCode());
             String rptaRegistro = null;
             if(isNew)
                 rptaRegistro = modeloAreaDet.insertAreaDetalle(area, curso, cantidad);
@@ -123,10 +129,18 @@ public class ControladorPantAreaDet implements ActionListener,KeyListener {
             int filaEditar = vistaAreaDet.DatosAreaDetalle.getSelectedRow();
             int numFS = vistaAreaDet.DatosAreaDetalle.getSelectedRowCount();
             if(filaEditar>=0 && numFS == 1){
-                currentCode = String.valueOf(vistaAreaDet.DatosAreaDetalle.getValueAt(filaEditar, 0));
-                currentCourse = String.valueOf(vistaAreaDet.DatosAreaDetalle.getValueAt(filaEditar, 1));
-                vistaAreaDet.cboxArea.setSelectedItem(vistaAreaDet.DatosAreaDetalle.getValueAt(filaEditar, 0));
-                vistaAreaDet.cboxCurso.setSelectedItem(vistaAreaDet.DatosAreaDetalle.getValueAt(filaEditar, 1));
+                int cont = 0;
+                String temp = String.valueOf(vistaAreaDet.DatosAreaDetalle.getValueAt(filaEditar, 0));
+                while(arr1.length > cont && !temp.equals(arr1[cont].getName()))
+                    cont++;
+                currentCode = arr1[cont].getCode();
+                vistaAreaDet.cboxArea.setSelectedItem(arr1[cont]);
+                cont = 0;
+                temp = String.valueOf(vistaAreaDet.DatosAreaDetalle.getValueAt(filaEditar, 1));
+                while(arr2.length > cont && !temp.equals(arr2[cont].getName()))
+                    cont++;
+                currentCourse = arr2[cont].getCode();
+                vistaAreaDet.cboxCurso.setSelectedItem(arr2[cont]);
                 vistaAreaDet.txtCantidad.setText(String.valueOf(vistaAreaDet.DatosAreaDetalle.getValueAt(filaEditar, 2)));
             }else{
                 JOptionPane.showMessageDialog(null,"Selección no válida.");
