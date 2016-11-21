@@ -126,4 +126,36 @@ public class PreguntaDAO {
         }
         return listaPregunta;
     }
+    
+    public Pregunta getName(String code){
+        ArrayList listaPregunta = new ArrayList();
+        Pregunta pregunta;
+        try {
+            Connection accesoDB = conexion.getConexion();
+            PreparedStatement ps = accesoDB.prepareStatement("Select * from PREGUNTA where PregCod = "+code);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                pregunta = new Pregunta();
+                pregunta.setCodigo(rs.getString(1));
+                pregunta.setCurso(rs.getString(2));
+                pregunta.setBalota(rs.getString(3));
+                pregunta.setFormulador(rs.getString(4));
+                pregunta.setDificultad(rs.getString(5));
+                pregunta.setFecha(rs.getString(6));
+                pregunta.setEnunciado(rs.getString(7));
+                pregunta.setSolucion(rs.getString(8));
+                pregunta.setAlternativa1(rs.getString(9));
+                pregunta.setAlternativa2(rs.getString(10));
+                pregunta.setAlternativa3(rs.getString(11));
+                pregunta.setAlternativa4(rs.getString(12));
+                pregunta.setAlternativa5(rs.getString(13));
+                pregunta.setRespuesta(rs.getString(14));
+                pregunta.setEstRegistro(rs.getString(15));
+                listaPregunta.add(pregunta);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return (Pregunta)listaPregunta.get(0);
+    }
 }

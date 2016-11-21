@@ -17,9 +17,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import modelo.AreaDAO;
+import modelo.BalotaDAO;
 import modelo.Examen_cabDAO;
-import vista.FormPantPrincipal;
+import modelo.Examen_detDAO;
 import vista.PantallaExamen_cab;
+import vista.PantallaListaPreguntas;
 
 /**
  *
@@ -51,8 +53,17 @@ public class ControladorPantExamen_cab implements ActionListener,KeyListener {
                 Point p = me.getPoint();
                 int row = table.rowAtPoint(p);
                 if (me.getClickCount() == 2) {
+                    int filaEditar = vistaExamen_cab.dataExamen_cab.getSelectedRow();
+                    String temp1 = String.valueOf(vistaExamen_cab.dataExamen_cab.getValueAt(filaEditar, 0));
+                    String temp2 = String.valueOf(vistaExamen_cab.dataExamen_cab.getValueAt(filaEditar, 1));
                     Escritorio.removeAll();
                     Escritorio.repaint();
+                    PantallaListaPreguntas internal = new PantallaListaPreguntas("Preguntas",true,true,true,true);
+                    Examen_detDAO det  = new Examen_detDAO();
+                    ControladorPantExamen_det controladorC = new ControladorPantExamen_det(internal, det,Escritorio,temp1);
+                    controladorC.inicializarExamen_cabCRUD();
+                    Escritorio.add(internal);
+                    internal.show();
                 }
             }
         });
