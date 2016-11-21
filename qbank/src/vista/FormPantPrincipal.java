@@ -15,6 +15,7 @@ import controlador.ControladorPantPregunta;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
 import javax.swing.JDesktopPane;
+import javax.swing.JOptionPane;
 import modelo.AreaDAO;
 import modelo.AreaDetalleDAO;
 import modelo.BalotaDAO;

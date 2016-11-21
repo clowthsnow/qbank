@@ -65,11 +65,10 @@ public class ControladorPantExamen_det implements ActionListener,KeyListener {
                 currentCode = String.valueOf(vistaExamen_det.dataPreguntas.getValueAt(filaEditar, 0));
                 ArrayList<Examen_det> dets = det.getArea(exam, currentCode);
                 int numRegistros = dets.size();
-                vistaExamen_det.checkBio.setSelected(false);
-                vistaExamen_det.checkIng.setSelected(false);
-                vistaExamen_det.checkSoc.setSelected(false);
+                setAllCheck(false);
                 for (int i = 0; i < numRegistros; i++){
-                    switch(dets.get(i).getCodigo()){
+                    System.out.println("("+dets.get(i).getCodigo()+")");
+                    switch(dets.get(i).getArea()){
                         case "1":
                             vistaExamen_det.checkIng.setSelected(true);
                             break;
@@ -83,6 +82,13 @@ public class ControladorPantExamen_det implements ActionListener,KeyListener {
                 }
             }
         });
+    }
+    
+    public void setAllCheck(Boolean state){
+        vistaExamen_det.checkBio.setSelected(state);
+        vistaExamen_det.checkIng.setSelected(state);
+        vistaExamen_det.checkSoc.setSelected(state);
+        
     }
     
     public void llenarTabla(JTable tablaD){
@@ -183,6 +189,8 @@ public class ControladorPantExamen_det implements ActionListener,KeyListener {
             }
             llenarTabla(vistaExamen_det.dataPreguntas);
             vaciarCampos();
+            
+        }else if(e.getSource() == vistaExamen_det.bttnIng){
             
         }
     }

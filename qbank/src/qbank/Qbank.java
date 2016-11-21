@@ -23,8 +23,8 @@ public class Qbank {
         // TODO code application logic here
         
       try {
-         //String name = UIManager.getSystemLookAndFeelClassName();
-         //UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+         String name = UIManager.getSystemLookAndFeelClassName();
+         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
       }
       catch(Exception e) {
          e.printStackTrace();
