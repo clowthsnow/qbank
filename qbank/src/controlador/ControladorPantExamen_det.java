@@ -82,6 +82,12 @@ public class ControladorPantExamen_det implements ActionListener,KeyListener {
                 }
             }
         });
+        llenarTabla(vistaExamen_det.dataPreguntas);
+        llenarTabla(vistaExamen_det.dataIng, exam, "1");
+        llenarTabla(vistaExamen_det.dataBio, exam, "2");
+        llenarTabla(vistaExamen_det.dataSoc, exam, "3");
+        setAllCheck(false);
+        vaciarCampos();
     }
     
     public void setAllCheck(Boolean state){
@@ -188,10 +194,78 @@ public class ControladorPantExamen_det implements ActionListener,KeyListener {
                 JOptionPane.showMessageDialog(null, "Registro erróneo");
             }
             llenarTabla(vistaExamen_det.dataPreguntas);
+            llenarTabla(vistaExamen_det.dataIng, exam, "1");
+            llenarTabla(vistaExamen_det.dataBio, exam, "2");
+            llenarTabla(vistaExamen_det.dataSoc, exam, "3");
             vaciarCampos();
+            setAllCheck(false);
             
         }else if(e.getSource() == vistaExamen_det.bttnIng){
-            
+            int filaEditar = vistaExamen_det.dataIng.getSelectedRow();
+            int numFS = vistaExamen_det.dataIng.getSelectedRowCount();
+            String rptaRegistro = null;
+            if(filaEditar>=0 && numFS == 1){
+                String code = String.valueOf(vistaExamen_det.dataIng.getValueAt(filaEditar, 0));
+                rptaRegistro = modeloExamen_det.eliminarExamen_det(exam, code, "1");
+            }else{
+                JOptionPane.showMessageDialog(null,"Selección no válida.");
+                return;
+            }
+            if(rptaRegistro != null){
+                JOptionPane.showMessageDialog(null, rptaRegistro);
+            }else{
+                JOptionPane.showMessageDialog(null, "Registro erróneo");
+            }
+            llenarTabla(vistaExamen_det.dataPreguntas);
+            llenarTabla(vistaExamen_det.dataIng, exam, "1");
+            llenarTabla(vistaExamen_det.dataBio, exam, "2");
+            llenarTabla(vistaExamen_det.dataSoc, exam, "3");
+            setAllCheck(false);
+            vaciarCampos();
+        }else if(e.getSource() == vistaExamen_det.bttnBio){
+            int filaEditar = vistaExamen_det.dataBio.getSelectedRow();
+            int numFS = vistaExamen_det.dataBio.getSelectedRowCount();
+            String rptaRegistro = null;
+            if(filaEditar>=0 && numFS == 1){
+                String code = String.valueOf(vistaExamen_det.dataBio.getValueAt(filaEditar, 0));
+                rptaRegistro = modeloExamen_det.eliminarExamen_det(exam, code, "2");
+            }else{
+                JOptionPane.showMessageDialog(null,"Selección no válida.");
+                return;
+            }
+            if(rptaRegistro != null){
+                JOptionPane.showMessageDialog(null, rptaRegistro);
+            }else{
+                JOptionPane.showMessageDialog(null, "Registro erróneo");
+            }
+            llenarTabla(vistaExamen_det.dataPreguntas);
+            llenarTabla(vistaExamen_det.dataIng, exam, "1");
+            llenarTabla(vistaExamen_det.dataBio, exam, "2");
+            llenarTabla(vistaExamen_det.dataSoc, exam, "3");
+            setAllCheck(false);
+            vaciarCampos();
+        }else if(e.getSource() == vistaExamen_det.bttnSoc){
+            int filaEditar = vistaExamen_det.dataSoc.getSelectedRow();
+            int numFS = vistaExamen_det.dataSoc.getSelectedRowCount();
+            String rptaRegistro = null;
+            if(filaEditar>=0 && numFS == 1){
+                String code = String.valueOf(vistaExamen_det.dataSoc.getValueAt(filaEditar, 0));
+                rptaRegistro = modeloExamen_det.eliminarExamen_det(exam, code, "3");
+            }else{
+                JOptionPane.showMessageDialog(null,"Selección no válida.");
+                return;
+            }
+            if(rptaRegistro != null){
+                JOptionPane.showMessageDialog(null, rptaRegistro);
+            }else{
+                JOptionPane.showMessageDialog(null, "Registro erróneo");
+            }
+            llenarTabla(vistaExamen_det.dataPreguntas);
+            llenarTabla(vistaExamen_det.dataIng, exam, "1");
+            llenarTabla(vistaExamen_det.dataBio, exam, "2");
+            llenarTabla(vistaExamen_det.dataSoc, exam, "3");
+            setAllCheck(false);
+            vaciarCampos();
         }
     }
     

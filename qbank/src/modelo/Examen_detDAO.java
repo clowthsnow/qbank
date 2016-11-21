@@ -63,7 +63,7 @@ public class Examen_detDAO {
         Examen_det examen_det;
         try {
             Connection accesoDB = conexion.getConexion();
-            PreparedStatement ps = accesoDB.prepareStatement("Select * from EXAMEN_CAB where ExaCod = "+examen+" AND ExaArea = "+area);
+            PreparedStatement ps = accesoDB.prepareStatement("SELECT * FROM `EXAMEN_DET` WHERE `ExaCod`="+examen+" AND `ExaArea` = "+area+";");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
                 examen_det = new Examen_det();

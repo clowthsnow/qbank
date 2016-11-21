@@ -49,11 +49,13 @@ public class ControladorLogin implements ActionListener{
                 break;
                 case 2:
                     vistaPantPrincipal.Administrador.setEnabled(false);
-                    vistaPantPrincipal.Digitador.setEnabled(false);                    
+                    vistaPantPrincipal.Digitador.setEnabled(false); 
+                    vistaPantPrincipal.MantenimientoSecundario.setEnabled(false);
                 break;
                 case 3:
                     vistaPantPrincipal.Administrador.setEnabled(false);
                     vistaPantPrincipal.Formulador.setEnabled(false); 
+                    vistaPantPrincipal.MantenimientoSecundario.setEnabled(false);
                 break;
             }
             vistaPantPrincipal.setVisible(true);

@@ -43,6 +43,11 @@ public class FormLogin extends javax.swing.JFrame {
         labelPassword.setText("password:");
 
         ButtonIngresar.setText("Ingresar");
+        ButtonIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonIngresarActionPerformed(evt);
+            }
+        });
 
         ButtonSalir.setText("Salir");
         ButtonSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -97,6 +102,10 @@ public class FormLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_ButtonSalirActionPerformed
+
+    private void ButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonIngresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ButtonIngresarActionPerformed
 
     /**
      * @param args the command line arguments
