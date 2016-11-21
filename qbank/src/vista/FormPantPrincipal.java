@@ -15,7 +15,6 @@ import controlador.ControladorPantPregunta;
 import controlador.ControladorPantUserTipo;
 import controlador.ControladorPantUsuario;
 import javax.swing.JDesktopPane;
-import javax.swing.JOptionPane;
 import modelo.AreaDAO;
 import modelo.AreaDetalleDAO;
 import modelo.BalotaDAO;
@@ -49,6 +48,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         Escritorio = new javax.swing.JDesktopPane();
+        jLabel1 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         Administrador = new javax.swing.JMenu();
         MantenimientoUsuario = new javax.swing.JMenuItem();
@@ -66,9 +66,16 @@ public class FormPantPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo pantalla.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        Escritorio.add(jLabel1);
+        jLabel1.setBounds(0, 0, 940, 590);
+
+        Administrador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479712763_Key.png"))); // NOI18N
         Administrador.setMnemonic('f');
         Administrador.setText("Administrador");
 
+        MantenimientoUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479712780_User.png"))); // NOI18N
         MantenimientoUsuario.setMnemonic('o');
         MantenimientoUsuario.setText("Mantener Usuarios");
         MantenimientoUsuario.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +85,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         });
         Administrador.add(MantenimientoUsuario);
 
+        MantenimientoArea.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479712828_Download_1.png"))); // NOI18N
         MantenimientoArea.setMnemonic('s');
         MantenimientoArea.setText("Mantener áreas");
         MantenimientoArea.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +95,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         });
         Administrador.add(MantenimientoArea);
 
+        MantenimientoCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479717476_17_Paste_16x16.png"))); // NOI18N
         MantenimientoCurso.setMnemonic('a');
         MantenimientoCurso.setText("Mantener cursos");
         MantenimientoCurso.addActionListener(new java.awt.event.ActionListener() {
@@ -96,6 +105,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         });
         Administrador.add(MantenimientoCurso);
 
+        MantenimientoBalota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479712839_Edit_1.png"))); // NOI18N
         MantenimientoBalota.setMnemonic('x');
         MantenimientoBalota.setText("Mantener Balotas");
         MantenimientoBalota.addActionListener(new java.awt.event.ActionListener() {
@@ -107,9 +117,11 @@ public class FormPantPrincipal extends javax.swing.JFrame {
 
         menuBar.add(Administrador);
 
+        MantenimientoSecundario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479717667_032.png"))); // NOI18N
         MantenimientoSecundario.setMnemonic('e');
         MantenimientoSecundario.setText("Mantenimiento Secundario");
 
+        UserTipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479714811_Copy v2.png"))); // NOI18N
         UserTipo.setMnemonic('t');
         UserTipo.setText("Tipos de usuario");
         UserTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +131,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         });
         MantenimientoSecundario.add(UserTipo);
 
+        DificultadTipo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479717065_Properties.png"))); // NOI18N
         DificultadTipo.setMnemonic('y');
         DificultadTipo.setText("Tipo de dificultad");
         DificultadTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -128,6 +141,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         });
         MantenimientoSecundario.add(DificultadTipo);
 
+        AreaDetalle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479717455_29_House_16x16.png"))); // NOI18N
         AreaDetalle.setMnemonic('p');
         AreaDetalle.setText("Detalle de área");
         AreaDetalle.addActionListener(new java.awt.event.ActionListener() {
@@ -139,8 +153,10 @@ public class FormPantPrincipal extends javax.swing.JFrame {
 
         menuBar.add(MantenimientoSecundario);
 
+        Formulador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479714677_Paste.png"))); // NOI18N
         Formulador.setText("Formulador");
 
+        Examen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479717715_pdf.png"))); // NOI18N
         Examen.setText("Examen");
         Examen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,9 +167,11 @@ public class FormPantPrincipal extends javax.swing.JFrame {
 
         menuBar.add(Formulador);
 
+        Digitador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479718723_laptop.png"))); // NOI18N
         Digitador.setMnemonic('h');
         Digitador.setText("Digitador");
 
+        MantenimientoPreguntas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479717520_16_Copy_16x16.png"))); // NOI18N
         MantenimientoPreguntas.setMnemonic('c');
         MantenimientoPreguntas.setText("Preguntas");
         MantenimientoPreguntas.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +193,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 595, Short.MAX_VALUE)
+            .addComponent(Escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 582, Short.MAX_VALUE)
         );
 
         pack();
@@ -338,6 +356,7 @@ public class FormPantPrincipal extends javax.swing.JFrame {
     public javax.swing.JMenu MantenimientoSecundario;
     private javax.swing.JMenuItem MantenimientoUsuario;
     private javax.swing.JMenuItem UserTipo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
     public String userTipo;
