@@ -58,7 +58,7 @@ public class ControladorPantExamen_cab implements ActionListener,KeyListener {
                     String temp2 = String.valueOf(vistaExamen_cab.dataExamen_cab.getValueAt(filaEditar, 1));
                     Escritorio.removeAll();
                     Escritorio.repaint();
-                    PantallaListaPreguntas internal = new PantallaListaPreguntas("Preguntas",true,true,true,true);
+                    PantallaListaPreguntas internal = new PantallaListaPreguntas("Examen",true,true,true,true);
                     Examen_detDAO det  = new Examen_detDAO();
                     ControladorPantExamen_det controladorC = new ControladorPantExamen_det(internal, det,Escritorio,temp1);
                     controladorC.inicializarExamen_cabCRUD();
