@@ -74,6 +74,9 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
             arr3[cont++] = new Par(temp.getCodigo(), temp.getDescripcion());
         }
         vistaPregunta.cboxDificultad.setModel(new javax.swing.DefaultComboBoxModel(arr3));
+        
+        String arr4[] = {"1","2","3","4","5"};
+        vistaPregunta.cboxRespuesta.setModel(new javax.swing.DefaultComboBoxModel<>(arr4));
         llenarTabla(vistaPregunta.DatosPregunta);
     }
     
@@ -139,7 +142,7 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
             String alternativa3 = vistaPregunta.txtAlternativa3.getText();
             String alternativa4 = vistaPregunta.txtAlternativa4.getText();
             String alternativa5 = vistaPregunta.txtAlternativa5.getText();
-            String respuesta = vistaPregunta.txtRespuesta.getText();
+            String respuesta = String.valueOf(vistaPregunta.cboxRespuesta.getSelectedItem());
             if(formulador.equalsIgnoreCase("") || fecha.equalsIgnoreCase("") || enunciado.equalsIgnoreCase("") || solucion.equalsIgnoreCase("") || alternativa1.equalsIgnoreCase("") || alternativa2.equalsIgnoreCase("") || alternativa3.equalsIgnoreCase("") || alternativa4.equalsIgnoreCase("") || alternativa5.equalsIgnoreCase("") || respuesta.equalsIgnoreCase("")){
                 JOptionPane.showMessageDialog(null,"Datos incompletos.");
                 return;
@@ -206,7 +209,7 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
                 vistaPregunta.txtAlternativa3.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 10)));
                 vistaPregunta.txtAlternativa4.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 11)));
                 vistaPregunta.txtAlternativa5.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 12)));
-                vistaPregunta.txtRespuesta.setText(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 13)));
+                vistaPregunta.cboxRespuesta.setSelectedItem(String.valueOf(vistaPregunta.DatosPregunta.getValueAt(filaEditar, 13)));
             }else{
                 JOptionPane.showMessageDialog(null,"Selección no válida.");
             }
@@ -244,7 +247,6 @@ public class ControladorPantPregunta implements ActionListener,KeyListener {
         vistaPregunta.txtAlternativa3.setText("");
         vistaPregunta.txtAlternativa4.setText("");
         vistaPregunta.txtAlternativa5.setText("");
-        vistaPregunta.txtRespuesta.setText("");
     }
 
     @Override

@@ -32,6 +32,9 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         lblCurso = new javax.swing.JLabel();
         cboxCurso = new javax.swing.JComboBox<>();
         lblBalota = new javax.swing.JLabel();
@@ -59,13 +62,13 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
         lblAlternativa5 = new javax.swing.JLabel();
         txtAlternativa5 = new javax.swing.JTextField();
         lblRespuesta = new javax.swing.JLabel();
-        txtRespuesta = new javax.swing.JTextField();
         bttnNuevo = new javax.swing.JButton();
         bttnGuardar = new javax.swing.JButton();
         bttnEliminar = new javax.swing.JButton();
         bttnModificar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         DatosPregunta = new javax.swing.JTable();
+        cboxRespuesta = new javax.swing.JComboBox<>();
 
         lblCurso.setText("Curso:");
 
@@ -105,13 +108,7 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
 
         lblAlternativa5.setText("Alternativa 5:");
 
-        lblRespuesta.setText("Respuesta:");
-
-        txtRespuesta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRespuestaActionPerformed(evt);
-            }
-        });
+        lblRespuesta.setText("Respuesta:         Alternativa ");
 
         bttnNuevo.setText("Nuevo");
 
@@ -133,6 +130,8 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane3.setViewportView(DatosPregunta);
+
+        cboxRespuesta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,18 +179,18 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtAlternativa2))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblAlternativa4)
+                                .addComponent(lblRespuesta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAlternativa4))
+                                .addComponent(cboxRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAlternativa5)
-                                    .addComponent(lblRespuesta))
+                                    .addComponent(lblAlternativa4)
+                                    .addComponent(lblAlternativa5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtAlternativa5)
-                                    .addComponent(txtRespuesta))))
-                        .addContainerGap(44, Short.MAX_VALUE))
+                                    .addComponent(txtAlternativa4))))
+                        .addContainerGap(125, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -205,7 +204,7 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCurso)
                     .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -248,7 +247,7 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblRespuesta)
-                            .addComponent(txtRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cboxRespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(bttnNuevo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -264,9 +263,9 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRespuestaActionPerformed
+    private void bttnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttnNuevoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtRespuestaActionPerformed
+    }//GEN-LAST:event_bttnNuevoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -275,9 +274,13 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
     public javax.swing.JButton bttnGuardar;
     public javax.swing.JButton bttnModificar;
     public javax.swing.JButton bttnNuevo;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     public javax.swing.JComboBox<String> cboxBalota;
     public javax.swing.JComboBox<String> cboxCurso;
     public javax.swing.JComboBox<String> cboxDificultad;
+    public javax.swing.JComboBox<String> cboxRespuesta;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -302,7 +305,6 @@ public class PantallaPregunta extends javax.swing.JInternalFrame {
     public javax.swing.JTextArea txtEnunciado;
     public javax.swing.JTextField txtFecha;
     public javax.swing.JTextField txtFormulador;
-    public javax.swing.JTextField txtRespuesta;
     public javax.swing.JTextArea txtSolucion;
     // End of variables declaration//GEN-END:variables
 }

@@ -34,6 +34,7 @@ public class Examen_detDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -52,6 +53,7 @@ public class Examen_detDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -74,6 +76,7 @@ public class Examen_detDAO {
                 examen_det.setEstRegistro(rs.getString(5));
                 listaExamen_det.add(examen_det);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,6 +99,7 @@ public class Examen_detDAO {
                 examen_det.setEstRegistro(rs.getString(5));
                 listaExamen_det.add(examen_det);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

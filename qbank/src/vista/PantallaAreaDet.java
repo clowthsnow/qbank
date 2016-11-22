@@ -44,35 +44,59 @@ public class PantallaAreaDet extends javax.swing.JInternalFrame {
         bttnModificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         DatosAreaDetalle = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblArea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblArea.setForeground(new java.awt.Color(255, 255, 255));
         lblArea.setText("Área:");
+        getContentPane().add(lblArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 120, -1, -1));
 
         cboxArea.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cboxArea, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 143, -1));
 
+        lblCurso.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCurso.setForeground(new java.awt.Color(255, 255, 255));
         lblCurso.setText("Curso:");
+        getContentPane().add(lblCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         cboxCurso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(cboxCurso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 143, -1));
 
+        lblCantidad.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblCantidad.setForeground(new java.awt.Color(255, 255, 255));
         lblCantidad.setText("Cantidad:");
+        getContentPane().add(lblCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, -1, -1));
 
         txtCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCantidadActionPerformed(evt);
             }
         });
+        getContentPane().add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 143, -1));
 
+        bttnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479709665_New.png"))); // NOI18N
         bttnNuevo.setText("Nuevo");
         bttnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bttnNuevoActionPerformed(evt);
             }
         });
+        getContentPane().add(bttnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 110, 40));
 
+        bttnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479702704_Save.png"))); // NOI18N
         bttnGuardar.setText("Guardar");
+        getContentPane().add(bttnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 110, 40));
 
+        bttnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479702714_Remove.png"))); // NOI18N
         bttnEliminar.setText("Eliminar");
+        getContentPane().add(bttnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 170, 110, 40));
 
+        bttnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479702744_Preview.png"))); // NOI18N
         bttnModificar.setText("Modificar");
+        getContentPane().add(bttnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 220, 110, 40));
 
         DatosAreaDetalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -87,56 +111,16 @@ public class PantallaAreaDet extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(DatosAreaDetalle);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblArea)
-                    .addComponent(lblCurso)
-                    .addComponent(lblCantidad))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cboxArea, 0, 143, Short.MAX_VALUE)
-                        .addComponent(cboxCurso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bttnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(65, 65, 65))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 621, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblArea)
-                    .addComponent(cboxArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnNuevo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblCurso))
-                    .addComponent(bttnGuardar, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblCantidad)
-                        .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(bttnEliminar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnModificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 563, 100));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Administracion de Area Determinada");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 440, 50));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo pantalla.jpg"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,6 +142,8 @@ public class PantallaAreaDet extends javax.swing.JInternalFrame {
     public javax.swing.JButton bttnNuevo;
     public javax.swing.JComboBox<String> cboxArea;
     public javax.swing.JComboBox<String> cboxCurso;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblArea;
     public javax.swing.JLabel lblCantidad;

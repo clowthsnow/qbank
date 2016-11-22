@@ -34,6 +34,7 @@ public class UserTipoDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -52,6 +53,7 @@ public class UserTipoDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Modificación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -68,6 +70,7 @@ public class UserTipoDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -88,6 +91,7 @@ public class UserTipoDAO {
                 usuarioTipo.setEstRegistro(rs.getString(3));
                 listaUsuarioTipo.add(usuarioTipo);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -108,6 +112,7 @@ public class UserTipoDAO {
                 usuarioTipo.setEstRegistro(rs.getString(3));
                 listaUsuarioTipo.add(usuarioTipo);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

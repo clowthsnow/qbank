@@ -44,6 +44,7 @@ public class PreguntaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -73,6 +74,7 @@ public class PreguntaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Modificación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -89,6 +91,7 @@ public class PreguntaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -121,6 +124,7 @@ public class PreguntaDAO {
                 pregunta.setEstRegistro(rs.getString(15));
                 listaPregunta.add(pregunta);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -153,9 +157,11 @@ public class PreguntaDAO {
                 pregunta.setEstRegistro(rs.getString(15));
                 listaPregunta.add(pregunta);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return (Pregunta)listaPregunta.get(0);
     }
 }

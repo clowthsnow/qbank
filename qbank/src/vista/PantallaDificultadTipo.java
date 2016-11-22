@@ -40,22 +40,38 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
         bttnModificar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         DatosDificultadTipo = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDescripcion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
         lblDescripcion.setText("Descripción:");
+        getContentPane().add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, -1, -1));
 
         txtDescripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDescripcionActionPerformed(evt);
             }
         });
+        getContentPane().add(txtDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 240, 50));
 
+        bttnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479709665_New.png"))); // NOI18N
         bttnNuevo.setText("Nuevo");
+        getContentPane().add(bttnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 110, 40));
 
+        bttnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479702704_Save.png"))); // NOI18N
         bttnGuardar.setText("Guardar");
+        getContentPane().add(bttnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 110, 40));
 
+        bttnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479702714_Remove.png"))); // NOI18N
         bttnEliminar.setText("Eliminar");
+        getContentPane().add(bttnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 160, 110, 40));
 
+        bttnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/1479702744_Preview.png"))); // NOI18N
         bttnModificar.setText("Modificar");
+        getContentPane().add(bttnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, 110, 40));
 
         DatosDificultadTipo.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -70,41 +86,16 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(DatosDificultadTipo);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(lblDescripcion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(bttnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(61, 61, 61))
-            .addComponent(jScrollPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(45, Short.MAX_VALUE)
-                .addComponent(bttnNuevo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDescripcion)
-                    .addComponent(txtDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttnGuardar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(bttnModificar)
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 610, 100));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Dificultad de Preguntas");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 290, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo pantalla.jpg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,6 +111,8 @@ public class PantallaDificultadTipo extends javax.swing.JInternalFrame {
     public javax.swing.JButton bttnGuardar;
     public javax.swing.JButton bttnModificar;
     public javax.swing.JButton bttnNuevo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel lblDescripcion;
     public javax.swing.JTextField txtDescripcion;

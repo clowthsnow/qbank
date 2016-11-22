@@ -35,6 +35,7 @@ public class BalotaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -54,6 +55,7 @@ public class BalotaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Modificación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -70,6 +72,7 @@ public class BalotaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -92,6 +95,7 @@ public class BalotaDAO {
                 balota.setEstRegistro(rs.getString(5));
                 listaBalota.add(balota);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -114,6 +118,7 @@ public class BalotaDAO {
                 balota.setEstRegistro(rs.getString(5));
                 listaBalota.add(balota);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

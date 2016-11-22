@@ -34,6 +34,7 @@ public class Examen_cabDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -52,6 +53,7 @@ public class Examen_cabDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Modificación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -68,6 +70,7 @@ public class Examen_cabDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -89,6 +92,7 @@ public class Examen_cabDAO {
                 examen_cab.setEstRegistro(rs.getString(4));
                 listaExamen_cab.add(examen_cab);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

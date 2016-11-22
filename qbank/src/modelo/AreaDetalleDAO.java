@@ -35,6 +35,7 @@ public class AreaDetalleDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -55,6 +56,7 @@ public class AreaDetalleDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Modificación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -72,6 +74,7 @@ public class AreaDetalleDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -92,6 +95,7 @@ public class AreaDetalleDAO {
                 areaDetalle.setCantidad(rs.getString(3));
                 listaAreaDetalle.add(areaDetalle);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

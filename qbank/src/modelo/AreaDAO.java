@@ -34,6 +34,7 @@ public class AreaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -52,6 +53,7 @@ public class AreaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Modificación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -68,6 +70,7 @@ public class AreaDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -89,6 +92,7 @@ public class AreaDAO {
                 area.setEstRegistro(rs.getString(4));
                 listaArea.add(area);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -110,6 +114,7 @@ public class AreaDAO {
                 area.setEstRegistro(rs.getString(4));
                 listaArea.add(area);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

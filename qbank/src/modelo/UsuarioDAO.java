@@ -36,6 +36,7 @@ public class UsuarioDAO {
                 usuario.setEstRegistro(rs.getString(5));
                 return usuario;
             }
+            acceso.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -55,6 +56,7 @@ public class UsuarioDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Registro exitoso.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -75,6 +77,7 @@ public class UsuarioDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Modificación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -91,6 +94,7 @@ public class UsuarioDAO {
             int numFAfectadas = cs.executeUpdate();
             if(numFAfectadas > 0)
                 rptaRegistro = "Eliminación exitosa.";
+            accesoDB.close();
         }catch(Exception e){
             e.printStackTrace();
         }
@@ -113,6 +117,7 @@ public class UsuarioDAO {
                 usuario.setEstRegistro(rs.getString(5));
                 listaUsuario.add(usuario);
             }
+            accesoDB.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
